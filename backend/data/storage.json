@@ -25,10 +25,10 @@
         "GET_DEVICE_STATUS",
         "SHOW_NOTIFICATION"
       ],
-      "isOnline": true,
-      "lastSeen": "2026-09-24T14:33:04.125Z",
+      "isOnline": false,
+      "lastSeen": "2026-09-24T16:38:39.197Z",
       "createdAt": "2026-09-24T12:22:00.000Z",
-      "updatedAt": "2026-09-24T14:33:04.126Z"
+      "updatedAt": "2026-09-24T16:38:39.197Z"
     },
     {
       "id": "dev-phone-nitheesh-02",
