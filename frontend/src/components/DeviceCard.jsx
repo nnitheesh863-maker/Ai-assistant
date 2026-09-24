@@ -1,5 +1,5 @@
 import React from 'react';
-import { Laptop, Smartphone, Trash2, Cpu, Battery, Clock, Wifi } from 'lucide-react';
+import { Laptop, Smartphone, Trash2, Cpu, Battery, Clock, Wifi, HardDrive, Activity } from 'lucide-react';
 
 export function DeviceCard({ device, onDelete, onTestPing }) {
   const isLaptop = device.type === 'laptop';
@@ -35,24 +35,33 @@ export function DeviceCard({ device, onDelete, onTestPing }) {
             }`}
           ></span>
           <span className={`text-xs font-semibold ${isOnline ? 'text-emerald-400' : 'text-gray-500'}`}>
-            {isOnline ? 'Online' : 'Offline'}
+            {isOnline ? 'ONLINE' : 'OFFLINE'}
           </span>
         </div>
       </div>
 
-      {/* Info specs grid */}
-      <div className="grid grid-cols-2 gap-2 bg-dark-900/60 p-3 rounded-xl border border-white/5 text-xs text-gray-400 font-mono">
-        <div className="flex items-center space-x-2">
-          <Cpu className="w-3.5 h-3.5 text-primary-400" />
-          <span className="truncate">{device.platform || 'General'}</span>
+      {/* Real Hardware Telemetry Grid */}
+      <div className="grid grid-cols-2 gap-2 bg-dark-900/60 p-3 rounded-xl border border-white/5 text-xs text-gray-300 font-mono">
+        <div className="flex items-center space-x-2 truncate col-span-2">
+          <Cpu className="w-3.5 h-3.5 text-primary-400 shrink-0" />
+          <span className="truncate text-gray-400">{device.cpuModel || (isLaptop ? 'Intel / AMD Windows CPU' : 'ARM Octa-Core')}</span>
         </div>
+
+        {device.memory && (
+          <div className="flex items-center space-x-2">
+            <HardDrive className="w-3.5 h-3.5 text-accent-cyan shrink-0" />
+            <span>RAM: {device.memory.usagePercent} ({device.memory.freeMB} MB Free)</span>
+          </div>
+        )}
+
         <div className="flex items-center space-x-2">
-          <Wifi className="w-3.5 h-3.5 text-accent-cyan" />
-          <span className="truncate">{device.deviceId?.slice(0, 12)}...</span>
+          <Wifi className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+          <span className="truncate">{device.deviceId}</span>
         </div>
-        <div className="flex items-center space-x-2 col-span-2 pt-1 border-t border-white/5 text-[11px]">
-          <Clock className="w-3.5 h-3.5 text-gray-500" />
-          <span>Last seen: {device.lastSeen ? new Date(device.lastSeen).toLocaleTimeString() : 'Never'}</span>
+
+        <div className="flex items-center space-x-2 col-span-2 pt-1 border-t border-white/5 text-[11px] text-gray-400">
+          <Clock className="w-3.5 h-3.5 text-gray-500 shrink-0" />
+          <span>Last Heartbeat: {device.lastSeen ? new Date(device.lastSeen).toLocaleTimeString() : 'Never'}</span>
         </div>
       </div>
 
@@ -67,7 +76,7 @@ export function DeviceCard({ device, onDelete, onTestPing }) {
               : 'bg-dark-800 text-gray-600 border-transparent cursor-not-allowed'
           }`}
         >
-          Check Status
+          Check Real Status
         </button>
 
         <button

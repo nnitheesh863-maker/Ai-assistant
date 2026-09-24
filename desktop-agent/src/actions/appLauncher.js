@@ -1,11 +1,13 @@
-import { exec, spawn } from 'child_process';
+import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import { isCommandAllowed } from '../security/allowlist.js';
 
-// Common Windows Application executable paths lookup
-function resolveAppExecutable(cleanTarget) {
+/**
+ * Dynamically resolves Windows executable paths across standard installation locations
+ */
+export function resolveAppExecutable(cleanTarget) {
   const localAppData = process.env.LOCALAPPDATA || path.join(os.homedir(), 'AppData', 'Local');
   const appData = process.env.APPDATA || path.join(os.homedir(), 'AppData', 'Roaming');
   const programFiles = process.env['ProgramFiles'] || 'C:\\Program Files';
@@ -38,6 +40,16 @@ function resolveAppExecutable(cleanTarget) {
       path.join(programFiles, 'Microsoft VS Code', 'Code.exe'),
       path.join(localAppData, 'Programs', 'Microsoft VS Code', 'bin', 'code.cmd')
     ],
+    calc: [
+      path.join(systemRoot, 'System32', 'calc.exe')
+    ],
+    calculator: [
+      path.join(systemRoot, 'System32', 'calc.exe')
+    ],
+    notepad: [
+      path.join(systemRoot, 'System32', 'notepad.exe'),
+      path.join(localAppData, 'Microsoft', 'WindowsApps', 'notepad.exe')
+    ],
     msedge: [
       path.join(programFilesX86, 'Microsoft', 'Edge', 'Application', 'msedge.exe'),
       path.join(programFiles, 'Microsoft', 'Edge', 'Application', 'msedge.exe')
@@ -49,16 +61,6 @@ function resolveAppExecutable(cleanTarget) {
     spotify: [
       path.join(appData, 'Spotify', 'Spotify.exe'),
       path.join(localAppData, 'Microsoft', 'WindowsApps', 'Spotify.exe')
-    ],
-    calc: [
-      path.join(systemRoot, 'System32', 'calc.exe')
-    ],
-    calculator: [
-      path.join(systemRoot, 'System32', 'calc.exe')
-    ],
-    notepad: [
-      path.join(systemRoot, 'System32', 'notepad.exe'),
-      path.join(localAppData, 'Microsoft', 'WindowsApps', 'notepad.exe')
     ],
     explorer: [
       path.join(systemRoot, 'explorer.exe')
@@ -77,65 +79,64 @@ function resolveAppExecutable(cleanTarget) {
   const candidates = lookupPaths[cleanTarget] || [];
   for (const candidate of candidates) {
     if (fs.existsSync(candidate)) {
-      return candidate;
+      return { found: true, path: candidate };
     }
   }
 
-  return cleanTarget;
+  // If specific path not found, fallback to target name for system commands (e.g. calc.exe, notepad.exe)
+  return { found: false, path: cleanTarget };
 }
 
+/**
+ * Launch an allowlisted Windows application using direct process spawning
+ */
 export async function launchApplication(target) {
   if (!isCommandAllowed(target)) {
-    throw new Error(`Security violation: Application command '${target}' is not in the desktop allowlist.`);
+    throw new Error(`Security Violation: Application '${target}' is not in the desktop allowlist.`);
   }
 
+  const cleanTarget = target.trim().toLowerCase();
+  const resolution = resolveAppExecutable(cleanTarget);
+
   return new Promise((resolve, reject) => {
-    const cleanTarget = target.trim().toLowerCase();
-    const resolvedPath = resolveAppExecutable(cleanTarget);
+    try {
+      console.log(`[EXECUTOR] Launching application '${cleanTarget}' -> Path: '${resolution.path}'`);
 
-    console.log(`🚀 Launching application: '${cleanTarget}' -> Resolved: '${resolvedPath}'`);
-
-    // Use Explorer Shell & Shell.Application COM object to guarantee foreground visible window
-    const sanitizedPath = resolvedPath.replace(/'/g, "''");
-    const psCmd = `powershell.exe -NoProfile -Command "(New-Object -ComObject Shell.Application).Open('${sanitizedPath}')"`;
-
-    exec(psCmd, (error) => {
-      if (error) {
-        // Fallback to explorer.exe directly
-        exec(`explorer.exe "${resolvedPath}"`, (expErr) => {
-          if (expErr) {
-            // Final fallback to cmd start
-            exec(`cmd.exe /c start "" "${resolvedPath}"`, (cmdErr) => {
-              if (cmdErr) {
-                return reject(new Error(`Failed to launch application '${cleanTarget}': ${cmdErr.message}`));
-              }
-              resolve({
-                success: true,
-                action: 'OPEN_APP',
-                target: cleanTarget,
-                resolvedPath,
-                message: `Launched ${cleanTarget} on Windows laptop`
-              });
-            });
-          } else {
-            resolve({
-              success: true,
-              action: 'OPEN_APP',
-              target: cleanTarget,
-              resolvedPath,
-              message: `Launched ${cleanTarget} on Windows laptop`
-            });
-          }
+      let child;
+      if (resolution.found) {
+        // Launch direct binary
+        child = spawn(resolution.path, [], {
+          detached: true,
+          stdio: 'ignore'
         });
       } else {
-        resolve({
-          success: true,
-          action: 'OPEN_APP',
-          target: cleanTarget,
-          resolvedPath,
-          message: `Launched ${cleanTarget} on Windows laptop`
+        // Launch via shell start
+        child = spawn('cmd.exe', ['/c', 'start', '', cleanTarget], {
+          detached: true,
+          stdio: 'ignore'
         });
       }
-    });
+
+      child.on('error', (err) => {
+        console.error(`[EXECUTOR] Process spawn error for ${cleanTarget}:`, err.message);
+        reject(new Error(`Failed to start application: ${err.message}`));
+      });
+
+      child.unref();
+
+      console.log(`[EXECUTOR] Process started successfully for ${cleanTarget} (PID: ${child.pid || 'detached'})`);
+
+      resolve({
+        success: true,
+        action: 'OPEN_APP',
+        target: cleanTarget,
+        resolvedPath: resolution.path,
+        pid: child.pid || null,
+        message: `${cleanTarget.toUpperCase()} process started successfully on Windows laptop.`
+      });
+    } catch (err) {
+      console.error(`[EXECUTOR] Execution error:`, err.message);
+      reject(new Error(`Could not launch ${cleanTarget}: ${err.message}`));
+    }
   });
 }

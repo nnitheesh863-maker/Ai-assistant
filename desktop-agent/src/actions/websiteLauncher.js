@@ -1,47 +1,38 @@
-import { exec } from 'child_process';
+import { spawn } from 'child_process';
 import { isUrlAllowed } from '../security/allowlist.js';
 
 export async function openWebsite(url) {
   if (!isUrlAllowed(url)) {
-    throw new Error(`Security violation: Invalid or unallowed URL '${url}'.`);
+    throw new Error(`Security Violation: URL '${url}' violates safety allowlist.`);
   }
 
   return new Promise((resolve, reject) => {
-    const sanitizedUrl = url.replace(/'/g, "''");
-    const psCmd = `powershell.exe -NoProfile -Command "(New-Object -ComObject Shell.Application).Open('${sanitizedUrl}')"`;
+    try {
+      console.log(`[EXECUTOR] Opening website in default Windows browser: '${url}'`);
 
-    exec(psCmd, (error) => {
-      if (error) {
-        exec(`explorer.exe "${url}"`, (expErr) => {
-          if (expErr) {
-            exec(`cmd.exe /c start "" "${url}"`, (cmdErr) => {
-              if (cmdErr) {
-                return reject(new Error(`Failed to open website: ${cmdErr.message}`));
-              }
-              resolve({
-                success: true,
-                action: 'OPEN_WEBSITE',
-                url,
-                message: `Opened ${url} in default browser`
-              });
-            });
-          } else {
-            resolve({
-              success: true,
-              action: 'OPEN_WEBSITE',
-              url,
-              message: `Opened ${url} in default browser`
-            });
-          }
-        });
-      } else {
-        resolve({
-          success: true,
-          action: 'OPEN_WEBSITE',
-          url,
-          message: `Opened ${url} in default browser`
-        });
-      }
-    });
+      const child = spawn('cmd.exe', ['/c', 'start', '', url], {
+        detached: true,
+        stdio: 'ignore'
+      });
+
+      child.on('error', (err) => {
+        console.error(`[EXECUTOR] Browser launch error:`, err.message);
+        reject(new Error(`Failed to launch browser: ${err.message}`));
+      });
+
+      child.unref();
+
+      console.log(`[EXECUTOR] Browser opened for '${url}'`);
+
+      resolve({
+        success: true,
+        action: 'OPEN_WEBSITE',
+        url,
+        message: `Website '${url}' opened in default browser.`
+      });
+    } catch (err) {
+      console.error(`[EXECUTOR] Website open error:`, err.message);
+      reject(new Error(`Could not open website: ${err.message}`));
+    }
   });
 }

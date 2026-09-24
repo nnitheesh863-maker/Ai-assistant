@@ -1,45 +1,51 @@
-import { exec } from 'child_process';
+import { spawn } from 'child_process';
 import path from 'path';
 import os from 'os';
+import fs from 'fs';
 import { isFolderAllowed } from '../security/allowlist.js';
 
 export async function openFolder(folderTarget) {
   if (!isFolderAllowed(folderTarget)) {
-    throw new Error(`Security violation: Access to folder '${folderTarget}' is unauthorized.`);
+    throw new Error(`Security Violation: Access to folder '${folderTarget}' is unauthorized.`);
   }
 
-  // Safely resolve user profile path
-  const userProfile = os.homedir();
-  const subPath = folderTarget.replace(/^USERPROFILE[\\/]/i, '');
-  const absolutePath = path.join(userProfile, subPath);
+  // Safely resolve the currently logged-in user's actual home directory
+  const userHome = os.homedir();
+  const subFolder = folderTarget.replace(/^USERPROFILE[\\/]/i, '').replace(/^[\\/]/, '');
+  const absolutePath = path.join(userHome, subFolder);
+
+  if (!fs.existsSync(absolutePath)) {
+    throw new Error(`Folder '${subFolder}' does not exist at '${absolutePath}'`);
+  }
 
   return new Promise((resolve, reject) => {
-    const sanitizedPath = absolutePath.replace(/'/g, "''");
-    const psCmd = `powershell.exe -NoProfile -Command "(New-Object -ComObject Shell.Application).Open('${sanitizedPath}')"`;
+    try {
+      console.log(`[EXECUTOR] Opening folder in Windows Explorer: '${absolutePath}'`);
 
-    exec(psCmd, (error) => {
-      if (error) {
-        exec(`explorer.exe "${absolutePath}"`, (expErr) => {
-          if (expErr) {
-            return reject(new Error(`Failed to open folder: ${expErr.message}`));
-          }
-          resolve({
-            success: true,
-            action: 'OPEN_FOLDER',
-            folder: subPath,
-            resolvedPath: absolutePath,
-            message: `Opened ${subPath} folder`
-          });
-        });
-      } else {
-        resolve({
-          success: true,
-          action: 'OPEN_FOLDER',
-          folder: subPath,
-          resolvedPath: absolutePath,
-          message: `Opened ${subPath} folder`
-        });
-      }
-    });
+      const child = spawn('explorer.exe', [absolutePath], {
+        detached: true,
+        stdio: 'ignore'
+      });
+
+      child.on('error', (err) => {
+        console.error(`[EXECUTOR] Explorer launch error:`, err.message);
+        reject(new Error(`Failed to open folder: ${err.message}`));
+      });
+
+      child.unref();
+
+      console.log(`[EXECUTOR] Explorer started successfully for '${subFolder}'`);
+
+      resolve({
+        success: true,
+        action: 'OPEN_FOLDER',
+        folder: subFolder,
+        resolvedPath: absolutePath,
+        message: `${subFolder.toUpperCase()} folder opened in Windows Explorer.`
+      });
+    } catch (err) {
+      console.error(`[EXECUTOR] Folder open error:`, err.message);
+      reject(new Error(`Could not open folder: ${err.message}`));
+    }
   });
 }

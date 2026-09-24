@@ -12,17 +12,18 @@ export class DesktopAgentClient {
     this.isConnected = false;
     this.reconnectTimer = null;
     this.isManualClosed = false;
+    this.pingTimer = null;
   }
 
   connect() {
     if (this.isManualClosed) return;
 
-    console.log(`🔌 Connecting to Assistant Server at ${config.WS_URL}...`);
+    console.log(`[WS] 🔌 Connecting to Assistant Server at ${config.WS_URL}...`);
     this.ws = new WebSocket(config.WS_URL);
 
     this.ws.on('open', () => {
       this.isConnected = true;
-      console.log('✅ Connected to WebSocket server.');
+      console.log('[WS] ✅ Connected to WebSocket server.');
 
       // Authenticate with deviceToken
       const systemInfo = getSystemInformation();
@@ -32,9 +33,16 @@ export class DesktopAgentClient {
         systemInfo: {
           os: systemInfo.os,
           platform: 'desktop',
+          hostname: systemInfo.hostname,
+          cpuModel: systemInfo.cpuModel,
+          cpuCores: systemInfo.cpuCores,
+          memory: systemInfo.memory,
           capabilities: ['OPEN_APP', 'OPEN_WEBSITE', 'OPEN_FOLDER', 'GET_DEVICE_STATUS', 'SHOW_NOTIFICATION']
         }
       });
+
+      // Start client heartbeat ping
+      this.startHeartbeat();
     });
 
     this.ws.on('message', async (data) => {
@@ -42,19 +50,36 @@ export class DesktopAgentClient {
         const message = JSON.parse(data.toString());
         await this.handleMessage(message);
       } catch (err) {
-        console.error('❌ Failed to parse incoming WebSocket message:', err.message);
+        console.error('[WS] ❌ Failed to parse incoming WebSocket message:', err.message);
       }
     });
 
     this.ws.on('close', (code, reason) => {
       this.isConnected = false;
-      console.warn(`⚠️ Disconnected from Assistant Server (Code: ${code}). Reconnecting in ${config.RECONNECT_INTERVAL_MS / 1000}s...`);
+      this.stopHeartbeat();
+      console.warn(`[WS] ⚠️ Disconnected from Assistant Server (Code: ${code}). Reconnecting in ${config.RECONNECT_INTERVAL_MS / 1000}s...`);
       this.scheduleReconnect();
     });
 
     this.ws.on('error', (err) => {
-      console.error('❌ WebSocket error:', err.message);
+      console.error('[WS] ❌ WebSocket error:', err.message);
     });
+  }
+
+  startHeartbeat() {
+    this.stopHeartbeat();
+    this.pingTimer = setInterval(() => {
+      if (this.isConnected) {
+        this.send('PING', { timestamp: Date.now() });
+      }
+    }, 15000);
+  }
+
+  stopHeartbeat() {
+    if (this.pingTimer) {
+      clearInterval(this.pingTimer);
+      this.pingTimer = null;
+    }
   }
 
   scheduleReconnect() {
@@ -70,12 +95,13 @@ export class DesktopAgentClient {
 
     switch (type) {
       case 'AUTH_SUCCESS':
-        console.log(`🎉 Authenticated: ${payload.message}`);
-        showNotification('AI Assistant Connected', 'Laptop agent is online and ready for commands.');
+        console.log(`[AUTH] 🎉 ${payload.message}`);
+        console.log(`[STATUS] 🟢 Desktop Agent is ONLINE and waiting for commands...\n`);
+        showNotification('AETHER AI Agent Online', 'Laptop agent is connected and ready.');
         break;
 
       case 'AUTH_FAILED':
-        console.error(`🚫 Authentication Failed: ${payload?.error || message.error}`);
+        console.error(`[AUTH] 🚫 Authentication Failed: ${payload?.error || message.error}`);
         console.log('\nPlease verify your DEVICE_TOKEN in .env or run `npm run pair` with a pairing code.');
         break;
 
@@ -94,7 +120,8 @@ export class DesktopAgentClient {
 
   async executeCommand(payload) {
     const { commandId, intent, target, params = {} } = payload || {};
-    console.log(`\n⚡ Received Command: [${intent}] Target: '${target}'`);
+    console.log(`\n======================================================`);
+    console.log(`[COMMAND] ⚡ Received: [${intent}] Target: '${target}' (ID: ${commandId})`);
 
     const startTime = Date.now();
     let result = null;
@@ -104,29 +131,26 @@ export class DesktopAgentClient {
       switch (intent) {
         case 'OPEN_APP':
           result = await launchApplication(target);
-          showNotification('Application Opened', `Launched ${target}`);
           break;
 
         case 'OPEN_WEBSITE':
           result = await openWebsite(target);
-          showNotification('Website Opened', `Opened ${target}`);
           break;
 
         case 'OPEN_FOLDER':
           result = await openFolder(target);
-          showNotification('Folder Opened', `Opened folder: ${target}`);
           break;
 
         case 'GET_DEVICE_STATUS':
           result = getSystemInformation();
+          console.log(`[EXECUTOR] System telemetry generated:`, result.memory);
           break;
 
         case 'SHOW_NOTIFICATION':
-          result = await showNotification(params.title || 'Alert', params.message || target);
+          result = await showNotification(params.title || 'AETHER Alert', params.message || target);
           break;
 
         case 'LOCK_DEVICE':
-          // Sensitive command execution upon approval
           result = await launchApplication('rundll32.exe user32.dll,LockWorkStation');
           break;
 
@@ -134,7 +158,8 @@ export class DesktopAgentClient {
           throw new Error(`Unsupported intent '${intent}' for desktop agent.`);
       }
 
-      console.log(`✅ Execution SUCCESS in ${Date.now() - startTime}ms`);
+      console.log(`[EXECUTOR] ✅ SUCCESS in ${Date.now() - startTime}ms`);
+      console.log(`======================================================\n`);
 
       this.send('COMMAND_EXECUTION_RESULT', {
         commandId,
@@ -143,7 +168,9 @@ export class DesktopAgentClient {
         executionTimeMs: Date.now() - startTime
       });
     } catch (err) {
-      console.error(`❌ Execution FAILED: ${err.message}`);
+      console.error(`[EXECUTOR] ❌ FAILED: ${err.message}`);
+      console.log(`======================================================\n`);
+
       this.send('COMMAND_EXECUTION_RESULT', {
         commandId,
         status: 'FAILED',
@@ -161,6 +188,7 @@ export class DesktopAgentClient {
 
   stop() {
     this.isManualClosed = true;
+    this.stopHeartbeat();
     if (this.reconnectTimer) clearTimeout(this.reconnectTimer);
     if (this.ws) this.ws.close();
   }

@@ -25,17 +25,10 @@
         "GET_DEVICE_STATUS",
         "SHOW_NOTIFICATION"
       ],
-<<<<<<< HEAD
-      "isOnline": false,
-      "lastSeen": "2026-09-24T16:38:39.197Z",
-      "createdAt": "2026-09-24T12:22:00.000Z",
-      "updatedAt": "2026-09-24T16:38:39.197Z"
-=======
       "isOnline": true,
-      "lastSeen": "2026-09-24T14:33:04.125Z",
+      "lastSeen": "2026-09-24T16:54:12.325Z",
       "createdAt": "2026-09-24T12:22:00.000Z",
-      "updatedAt": "2026-09-24T14:33:04.126Z"
->>>>>>> 2677f7e9b293291a7a0d6041c6ff0ebddefb8329
+      "updatedAt": "2026-09-24T16:54:12.325Z"
     },
     {
       "id": "dev-phone-nitheesh-02",
@@ -490,6 +483,54 @@
       },
       "timestamp": "2026-09-24T16:37:50.126Z",
       "updatedAt": "2026-09-24T16:37:50.698Z"
+    },
+    {
+      "id": "ec38a08d-154c-42d7-af7e-d795c974239e",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open VS Code",
+      "intent": "OPEN_APP",
+      "target": "code",
+      "status": "FAILED",
+      "details": {
+        "error": "Target device is currently offline or unreachable."
+      },
+      "timestamp": "2026-09-24T16:46:43.285Z",
+      "updatedAt": "2026-09-24T16:46:43.288Z"
+    },
+    {
+      "id": "2f2c0681-1c62-46ad-a96e-9d14f9f8ea12",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "FAILED",
+      "details": {
+        "error": "Target device is currently offline or unreachable."
+      },
+      "timestamp": "2026-09-24T16:46:46.456Z",
+      "updatedAt": "2026-09-24T16:46:46.460Z"
+    },
+    {
+      "id": "17bfac1e-5bb5-43cd-a932-57552efde0cb",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Downloads folder",
+      "intent": "OPEN_FOLDER",
+      "target": "USERPROFILE\\Downloads",
+      "status": "FAILED",
+      "details": {
+        "error": "Target device is currently offline or unreachable."
+      },
+      "timestamp": "2026-09-24T16:48:15.121Z",
+      "updatedAt": "2026-09-24T16:48:15.122Z"
     }
   ],
   "chatMessages": [
@@ -1208,6 +1249,117 @@
         "message": "Executing on Nitheesh's Laptop..."
       },
       "timestamp": "2026-09-24T16:37:50.130Z"
+    },
+    {
+      "id": "db52a3a0-c087-4de6-b46b-a9a96da2bae5",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open VS Code",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:46:42.752Z"
+    },
+    {
+      "id": "fb64cd03-4ee2-476a-a1e0-37d962fb170c",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening VS Code on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "vscode",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "FAILED",
+        "commandId": "ec38a08d-154c-42d7-af7e-d795c974239e",
+        "device": "Nitheesh's Laptop",
+        "error": "Target device is currently offline or unreachable.",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "code",
+          "displayName": "Visual Studio Code",
+          "requires_confirmation": false,
+          "params": {}
+        }
+      },
+      "timestamp": "2026-09-24T16:46:43.289Z"
+    },
+    {
+      "id": "7eea9d26-0317-4f63-9bf2-55850ef75d2b",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:46:45.580Z"
+    },
+    {
+      "id": "9c89e436-d0f8-46a9-acb5-700cecdc8501",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "FAILED",
+        "commandId": "2f2c0681-1c62-46ad-a96e-9d14f9f8ea12",
+        "device": "Nitheesh's Laptop",
+        "error": "Target device is currently offline or unreachable.",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        }
+      },
+      "timestamp": "2026-09-24T16:46:46.461Z"
+    },
+    {
+      "id": "e23f6215-3af9-421d-863a-b6425a268687",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Downloads folder",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:48:14.151Z"
+    },
+    {
+      "id": "24e45e1c-aabf-4c4e-a485-d631ed13f895",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening your Downloads folder on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_FOLDER",
+        "device": "laptop",
+        "target": "downloads",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "FAILED",
+        "commandId": "17bfac1e-5bb5-43cd-a932-57552efde0cb",
+        "device": "Nitheesh's Laptop",
+        "error": "Target device is currently offline or unreachable.",
+        "command": {
+          "intent": "OPEN_FOLDER",
+          "device": "laptop",
+          "target": "USERPROFILE\\Downloads",
+          "displayName": "DOWNLOADS Folder",
+          "requires_confirmation": false,
+          "params": {}
+        }
+      },
+      "timestamp": "2026-09-24T16:48:15.123Z"
     }
   ],
   "pairingRequests": []

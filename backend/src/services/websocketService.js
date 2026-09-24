@@ -87,10 +87,14 @@ export class WebSocketService {
 
         this.deviceSockets.set(device.deviceId, ws);
 
-        // Update device in DB as online
+        // Update device in DB as online with real hardware telemetry
         DeviceModel.updateStatus(device.deviceId, true, {
           os: systemInfo?.os || device.os,
           platform: systemInfo?.platform || device.platform,
+          hostname: systemInfo?.hostname,
+          cpuModel: systemInfo?.cpuModel,
+          cpuCores: systemInfo?.cpuCores,
+          memory: systemInfo?.memory,
           capabilities: systemInfo?.capabilities || device.capabilities
         });
 
@@ -99,10 +103,16 @@ export class WebSocketService {
           payload: { message: `Device '${device.name}' authenticated successfully`, deviceId: device.deviceId }
         });
 
-        // Notify user's web dashboards
+        // Notify user's web dashboards with real telemetry
         this.broadcastToUser(device.userId, {
           type: 'DEVICE_STATUS_CHANGED',
-          payload: { deviceId: device.deviceId, isOnline: true, name: device.name, type: device.type }
+          payload: {
+            deviceId: device.deviceId,
+            isOnline: true,
+            name: device.name,
+            type: device.type,
+            systemInfo
+          }
         });
 
         console.log(`🔌 Agent connected: ${device.name} (${device.type}) [${device.deviceId}]`);
