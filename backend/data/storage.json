@@ -1,0 +1,1207 @@
+{
+  "users": [
+    {
+      "id": "943b625c-16f1-4557-b849-db3452964677",
+      "name": "Nitheesh",
+      "email": "nitheesh@gmail.com",
+      "password": "$2b$10$IHeFMndrvrHKr3IIQasxKuA6QXUCGBi/dWqtPv7TOP.d8zmxc9ZJG",
+      "createdAt": "2026-09-24T12:20:42.448Z"
+    }
+  ],
+  "devices": [
+    {
+      "id": "dev-laptop-nitheesh-01",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "name": "Nitheesh's Laptop",
+      "type": "laptop",
+      "deviceId": "laptop-nitheesh",
+      "deviceToken": "dev_laptop_token_nitheesh_2026",
+      "os": "Windows_NT 10.0.26200 (x64)",
+      "platform": "desktop",
+      "capabilities": [
+        "OPEN_APP",
+        "OPEN_WEBSITE",
+        "OPEN_FOLDER",
+        "GET_DEVICE_STATUS",
+        "SHOW_NOTIFICATION"
+      ],
+      "isOnline": true,
+      "lastSeen": "2026-09-24T14:33:04.125Z",
+      "createdAt": "2026-09-24T12:22:00.000Z",
+      "updatedAt": "2026-09-24T14:33:04.126Z"
+    },
+    {
+      "id": "dev-phone-nitheesh-02",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "name": "Nitheesh's Phone",
+      "type": "phone",
+      "deviceId": "phone-nitheesh",
+      "deviceToken": "dev_phone_token_nitheesh_2026",
+      "os": "Android 14",
+      "platform": "mobile",
+      "capabilities": [
+        "OPEN_APP",
+        "OPEN_WEBSITE",
+        "OPEN_FOLDER",
+        "GET_DEVICE_STATUS",
+        "SHOW_NOTIFICATION"
+      ],
+      "isOnline": false,
+      "lastSeen": "2026-09-24T12:22:00.000Z",
+      "createdAt": "2026-09-24T12:22:00.000Z",
+      "updatedAt": "2026-09-24T12:22:00.000Z"
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": "6c976a90-8109-44e8-9eca-d8e083ebd211",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "chrome",
+          "message": "Launched chrome on Windows laptop"
+        },
+        "completedAt": "2026-09-24T12:25:09.478Z"
+      },
+      "timestamp": "2026-09-24T12:25:09.430Z",
+      "updatedAt": "2026-09-24T12:25:09.478Z"
+    },
+    {
+      "id": "b150c59c-d3ea-4ea6-9a43-95129509359b",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open VS Code",
+      "intent": "OPEN_APP",
+      "target": "code",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "code",
+          "message": "Launched code on Windows laptop"
+        },
+        "completedAt": "2026-09-24T12:25:15.426Z"
+      },
+      "timestamp": "2026-09-24T12:25:15.361Z",
+      "updatedAt": "2026-09-24T12:25:15.426Z"
+    },
+    {
+      "id": "597d01ca-0a50-4bac-890c-bdf072185c42",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Downloads folder",
+      "intent": "OPEN_FOLDER",
+      "target": "USERPROFILE\\Downloads",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_FOLDER",
+          "folder": "Downloads",
+          "resolvedPath": "C:\\Users\\nnith\\Downloads",
+          "message": "Opened Downloads folder"
+        },
+        "completedAt": "2026-09-24T12:25:38.217Z"
+      },
+      "timestamp": "2026-09-24T12:25:38.183Z",
+      "updatedAt": "2026-09-24T12:25:38.217Z"
+    },
+    {
+      "id": "a4af4b68-a374-4b0f-b74a-e5751e605987",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "chrome",
+          "message": "Launched chrome on Windows laptop"
+        },
+        "completedAt": "2026-09-24T12:34:26.900Z"
+      },
+      "timestamp": "2026-09-24T12:34:26.327Z",
+      "updatedAt": "2026-09-24T12:34:26.900Z"
+    },
+    {
+      "id": "046ca6b9-b03d-43b0-9ed2-dfa5c7e1756d",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "chrome",
+          "message": "Launched chrome on Windows laptop"
+        },
+        "completedAt": "2026-09-24T12:34:44.276Z"
+      },
+      "timestamp": "2026-09-24T12:34:43.784Z",
+      "updatedAt": "2026-09-24T12:34:44.276Z"
+    },
+    {
+      "id": "5fb75204-962a-4d43-8a5c-5d857f1777cb",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "chrome",
+          "resolvedPath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+          "message": "Launched chrome on Windows laptop"
+        },
+        "completedAt": "2026-09-24T12:36:37.505Z"
+      },
+      "timestamp": "2026-09-24T12:36:37.029Z",
+      "updatedAt": "2026-09-24T12:36:37.505Z"
+    },
+    {
+      "id": "1fbf332e-9d61-4fde-910a-95b9ddffa1fa",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open VS Code",
+      "intent": "OPEN_APP",
+      "target": "code",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "code",
+          "resolvedPath": "C:\\Users\\nnith\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+          "message": "Launched code on Windows laptop"
+        },
+        "completedAt": "2026-09-24T12:36:40.277Z"
+      },
+      "timestamp": "2026-09-24T12:36:39.796Z",
+      "updatedAt": "2026-09-24T12:36:40.277Z"
+    },
+    {
+      "id": "a8b43c91-c86a-427e-acd0-e05262bc5b38",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Downloads folder",
+      "intent": "OPEN_FOLDER",
+      "target": "USERPROFILE\\Downloads",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_FOLDER",
+          "folder": "Downloads",
+          "resolvedPath": "C:\\Users\\nnith\\Downloads",
+          "message": "Opened Downloads folder"
+        },
+        "completedAt": "2026-09-24T12:36:42.555Z"
+      },
+      "timestamp": "2026-09-24T12:36:41.640Z",
+      "updatedAt": "2026-09-24T12:36:42.555Z"
+    },
+    {
+      "id": "820f1d64-714f-4abe-a799-c4ad8e5bf5b3",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "phone-nitheesh",
+      "deviceName": "Nitheesh's Phone",
+      "deviceType": "phone",
+      "rawCommand": "Open WhatsApp on my phone",
+      "intent": "OPEN_APP",
+      "target": "com.whatsapp",
+      "status": "FAILED",
+      "details": {
+        "error": "Target device is currently offline or unreachable."
+      },
+      "timestamp": "2026-09-24T12:36:42.727Z",
+      "updatedAt": "2026-09-24T12:36:42.729Z"
+    },
+    {
+      "id": "f25136ca-a66c-4ec6-96ac-1b36f0a0aa75",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open YouTube on laptop",
+      "intent": "OPEN_WEBSITE",
+      "target": "https://youtube.com",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_WEBSITE",
+          "url": "https://youtube.com",
+          "message": "Opened https://youtube.com in default browser"
+        },
+        "completedAt": "2026-09-24T12:36:45.561Z"
+      },
+      "timestamp": "2026-09-24T12:36:44.298Z",
+      "updatedAt": "2026-09-24T12:36:45.562Z"
+    },
+    {
+      "id": "32a32ed4-aec0-4e4a-896d-5bf5db6a9a1b",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open YouTube on laptop",
+      "intent": "OPEN_WEBSITE",
+      "target": "https://youtube.com",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_WEBSITE",
+          "url": "https://youtube.com",
+          "message": "Opened https://youtube.com in default browser"
+        },
+        "completedAt": "2026-09-24T12:36:49.441Z"
+      },
+      "timestamp": "2026-09-24T12:36:48.792Z",
+      "updatedAt": "2026-09-24T12:36:49.441Z"
+    },
+    {
+      "id": "8e8fc30d-19ee-41ed-8c56-37b7d6021884",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Check laptop status",
+      "intent": "GET_DEVICE_STATUS",
+      "target": "status",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "os": "Windows_NT 10.0.26200 (x64)",
+          "platform": "win32",
+          "hostname": "nitheesh",
+          "cpuModel": "Intel(R) Core(TM) 5 210H",
+          "cpuCores": 12,
+          "memory": {
+            "totalMB": 16077,
+            "freeMB": 4048,
+            "usagePercent": "75%"
+          },
+          "uptime": "24.3 hours",
+          "nodeVersion": "v24.19.0"
+        },
+        "completedAt": "2026-09-24T12:37:01.484Z"
+      },
+      "timestamp": "2026-09-24T12:37:01.475Z",
+      "updatedAt": "2026-09-24T12:37:01.484Z"
+    },
+    {
+      "id": "f0a5970e-23eb-4f72-b49d-6b7fe47c9442",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "FAILED",
+      "details": {
+        "error": "Target device is currently offline or unreachable."
+      },
+      "timestamp": "2026-09-24T12:38:03.965Z",
+      "updatedAt": "2026-09-24T12:38:03.967Z"
+    },
+    {
+      "id": "1d12eeb4-d3ed-4c73-b5d4-e45ae5b36796",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "chrome",
+          "resolvedPath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+          "message": "Launched chrome on Windows laptop"
+        },
+        "completedAt": "2026-09-24T12:38:45.027Z"
+      },
+      "timestamp": "2026-09-24T12:38:44.573Z",
+      "updatedAt": "2026-09-24T12:38:45.027Z"
+    },
+    {
+      "id": "bcf60e47-bd92-43d2-99dc-73fd2d117208",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "chrome",
+          "resolvedPath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+          "message": "Launched chrome on Windows laptop"
+        },
+        "completedAt": "2026-09-24T12:55:22.569Z"
+      },
+      "timestamp": "2026-09-24T12:55:22.112Z",
+      "updatedAt": "2026-09-24T12:55:22.569Z"
+    },
+    {
+      "id": "bf76b67a-be98-43f0-a1cc-d241230e14ee",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "chrome",
+          "resolvedPath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+          "message": "Launched chrome on Windows laptop"
+        },
+        "completedAt": "2026-09-24T12:55:31.474Z"
+      },
+      "timestamp": "2026-09-24T12:55:31.075Z",
+      "updatedAt": "2026-09-24T12:55:31.474Z"
+    },
+    {
+      "id": "59744850-7c6b-4871-874f-bd0d319646da",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "GET_DEVICE_STATUS -> status",
+      "intent": "GET_DEVICE_STATUS",
+      "target": "status",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "os": "Windows_NT 10.0.26200 (x64)",
+          "platform": "win32",
+          "hostname": "nitheesh",
+          "cpuModel": "Intel(R) Core(TM) 5 210H",
+          "cpuCores": 12,
+          "memory": {
+            "totalMB": 16077,
+            "freeMB": 6190,
+            "usagePercent": "61%"
+          },
+          "uptime": "24.6 hours",
+          "nodeVersion": "v24.19.0"
+        },
+        "completedAt": "2026-09-24T12:55:44.775Z"
+      },
+      "timestamp": "2026-09-24T12:55:44.768Z",
+      "updatedAt": "2026-09-24T12:55:44.775Z"
+    },
+    {
+      "id": "085440ea-55f9-4b28-954d-bc8f72dd0d6f",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Chrome",
+      "intent": "OPEN_APP",
+      "target": "chrome",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_APP",
+          "target": "chrome",
+          "resolvedPath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+          "message": "Launched chrome on Windows laptop"
+        },
+        "completedAt": "2026-09-24T16:37:31.902Z"
+      },
+      "timestamp": "2026-09-24T16:37:31.337Z",
+      "updatedAt": "2026-09-24T16:37:31.902Z"
+    },
+    {
+      "id": "9392b1b0-ebe9-4479-9765-5e80098e4e73",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Downloads folder",
+      "intent": "OPEN_FOLDER",
+      "target": "USERPROFILE\\Downloads",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_FOLDER",
+          "folder": "Downloads",
+          "resolvedPath": "C:\\Users\\nnith\\Downloads",
+          "message": "Opened Downloads folder"
+        },
+        "completedAt": "2026-09-24T16:37:50.698Z"
+      },
+      "timestamp": "2026-09-24T16:37:50.126Z",
+      "updatedAt": "2026-09-24T16:37:50.698Z"
+    }
+  ],
+  "chatMessages": [
+    {
+      "id": "7f3b1b54-e01a-4ef7-ae8b-980278ae86ac",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:25:09.214Z"
+    },
+    {
+      "id": "6d03dca6-3f36-4387-a4e1-42232cd076ec",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "6c976a90-8109-44e8-9eca-d8e083ebd211",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:25:09.433Z"
+    },
+    {
+      "id": "5ca2d338-4860-448f-9d53-a467a5eb6bda",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open VS Code",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:25:15.260Z"
+    },
+    {
+      "id": "f011bef5-2905-450e-8096-918232b22ea1",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Visual Studio Code on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "vs code",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "b150c59c-d3ea-4ea6-9a43-95129509359b",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "code",
+          "displayName": "Visual Studio Code",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:25:15.363Z"
+    },
+    {
+      "id": "15e5dd60-3c65-42f2-b4a0-59c1be08e122",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Downloads folder",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:25:38.073Z"
+    },
+    {
+      "id": "a089bafe-9265-4288-acb1-6cda971e2b01",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening your DOWNLOADS folder on laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_FOLDER",
+        "device": "laptop",
+        "target": "downloads",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "597d01ca-0a50-4bac-890c-bdf072185c42",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_FOLDER",
+          "device": "laptop",
+          "target": "USERPROFILE\\Downloads",
+          "displayName": "DOWNLOADS Folder",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:25:38.185Z"
+    },
+    {
+      "id": "84361411-b3e8-404e-a53f-7170cee1851c",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:34:26.047Z"
+    },
+    {
+      "id": "7bffd4e8-f104-4810-a935-1abc8a8a41a7",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "a4af4b68-a374-4b0f-b74a-e5751e605987",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:34:26.330Z"
+    },
+    {
+      "id": "28563a8d-3786-496c-ad41-524a919d522e",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:34:43.593Z"
+    },
+    {
+      "id": "d4b7ca41-3be7-4a34-b2f9-28b3f03c0d67",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "046ca6b9-b03d-43b0-9ed2-dfa5c7e1756d",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:34:43.786Z"
+    },
+    {
+      "id": "bb6be3ea-87e0-410c-80d4-9c0746020c59",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:36:36.861Z"
+    },
+    {
+      "id": "a3abf54e-c220-403e-8cc9-9bf7852898c1",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "5fb75204-962a-4d43-8a5c-5d857f1777cb",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:36:37.031Z"
+    },
+    {
+      "id": "374601b9-0936-4541-bf13-d04d5e4670dc",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open VS Code",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:36:39.743Z"
+    },
+    {
+      "id": "e8dd0447-9d20-402b-9d2c-d325c366e382",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Visual Studio Code on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "vs code",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "1fbf332e-9d61-4fde-910a-95b9ddffa1fa",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "code",
+          "displayName": "Visual Studio Code",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:36:39.799Z"
+    },
+    {
+      "id": "a154d73d-be06-4239-89a9-9416a4945170",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Downloads folder",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:36:41.580Z"
+    },
+    {
+      "id": "ae89d701-e0ae-44cd-bd45-4682c167f674",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening your DOWNLOADS folder on laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_FOLDER",
+        "device": "laptop",
+        "target": "downloads",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "a8b43c91-c86a-427e-acd0-e05262bc5b38",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_FOLDER",
+          "device": "laptop",
+          "target": "USERPROFILE\\Downloads",
+          "displayName": "DOWNLOADS Folder",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:36:41.642Z"
+    },
+    {
+      "id": "a45eb8d5-44d1-4a8c-94d9-2762146d7ddc",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open WhatsApp on my phone",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:36:42.667Z"
+    },
+    {
+      "id": "7570d184-c8e3-4cd5-830d-e4eab3e6180e",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching WhatsApp on your phone.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "phone",
+        "target": "whatsapp",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "FAILED",
+        "commandId": "820f1d64-714f-4abe-a799-c4ad8e5bf5b3",
+        "device": "Nitheesh's Phone",
+        "error": "Target device is currently offline or unreachable.",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "phone",
+          "target": "com.whatsapp",
+          "displayName": "WhatsApp",
+          "requires_confirmation": false,
+          "params": {}
+        }
+      },
+      "timestamp": "2026-09-24T12:36:42.731Z"
+    },
+    {
+      "id": "c9653c2a-3f1b-43b7-a120-92c8fa633c31",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open YouTube on laptop",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:36:44.228Z"
+    },
+    {
+      "id": "19eccee5-1ecb-49ee-b873-4d7635a45f25",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening YouTube in browser.",
+      "structuredCommand": {
+        "intent": "OPEN_WEBSITE",
+        "device": "laptop",
+        "target": "https://youtube.com",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "f25136ca-a66c-4ec6-96ac-1b36f0a0aa75",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_WEBSITE",
+          "device": "laptop",
+          "target": "https://youtube.com",
+          "displayName": "Website: https://youtube.com",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:36:44.300Z"
+    },
+    {
+      "id": "37c6f9f2-91e1-4df0-839a-1654dbe2677c",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open YouTube on laptop",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:36:48.687Z"
+    },
+    {
+      "id": "771fb562-aac4-4f24-bbad-424995932e84",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening YouTube in browser.",
+      "structuredCommand": {
+        "intent": "OPEN_WEBSITE",
+        "device": "laptop",
+        "target": "https://youtube.com",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "32a32ed4-aec0-4e4a-896d-5bf5db6a9a1b",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_WEBSITE",
+          "device": "laptop",
+          "target": "https://youtube.com",
+          "displayName": "Website: https://youtube.com",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:36:48.794Z"
+    },
+    {
+      "id": "516eaa62-c64e-488a-b514-18fbe9941915",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Check laptop status",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:37:01.374Z"
+    },
+    {
+      "id": "2286b3e2-7db8-4184-a005-445e5d92c5e8",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Querying status for your laptop.",
+      "structuredCommand": {
+        "intent": "GET_DEVICE_STATUS",
+        "device": "laptop",
+        "target": "status",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "8e8fc30d-19ee-41ed-8c56-37b7d6021884",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "GET_DEVICE_STATUS",
+          "device": "laptop",
+          "target": "status",
+          "displayName": "Device Status Check",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:37:01.479Z"
+    },
+    {
+      "id": "d2170938-0209-471b-882c-44a19abb6774",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:38:03.872Z"
+    },
+    {
+      "id": "d2f36f7c-f14f-4077-a113-bbe9bc685e9d",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "FAILED",
+        "commandId": "f0a5970e-23eb-4f72-b49d-6b7fe47c9442",
+        "device": "Nitheesh's Laptop",
+        "error": "Target device is currently offline or unreachable.",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        }
+      },
+      "timestamp": "2026-09-24T12:38:03.968Z"
+    },
+    {
+      "id": "9ef1dd69-6496-427b-9997-112bc46fc27a",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:38:44.492Z"
+    },
+    {
+      "id": "887a8909-264d-4016-a6f5-525c269e31fe",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "1d12eeb4-d3ed-4c73-b5d4-e45ae5b36796",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:38:44.577Z"
+    },
+    {
+      "id": "64ca9f42-7663-432a-bf23-044765ef3a06",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:55:21.924Z"
+    },
+    {
+      "id": "82047e12-69fa-49b3-92b6-66a7c6da193f",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "bcf60e47-bd92-43d2-99dc-73fd2d117208",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:55:22.115Z"
+    },
+    {
+      "id": "f22f700f-93b4-452b-81ec-b429eed89a17",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T12:55:30.906Z"
+    },
+    {
+      "id": "3e871b77-5f90-48e2-ae15-f903fff63c69",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "bf76b67a-be98-43f0-a1cc-d241230e14ee",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T12:55:31.079Z"
+    },
+    {
+      "id": "0e15c0fc-37fe-40c6-a27c-0cb67391f510",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Chrome",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:37:31.086Z"
+    },
+    {
+      "id": "51433131-8014-48ed-8a5a-e89c590964de",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching Chrome on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "chrome",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "085440ea-55f9-4b28-954d-bc8f72dd0d6f",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "chrome",
+          "displayName": "Google Chrome",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T16:37:31.339Z"
+    },
+    {
+      "id": "ecc48842-3d79-4324-a75f-f9a14044f03e",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open WhatsApp on my phone",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:37:44.804Z"
+    },
+    {
+      "id": "1702a8a6-9055-44f7-9a4d-42831067a3e0",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Launching WhatsApp on your phone.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "laptop",
+        "target": "whatsapp",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "FAILED",
+        "error": "Application 'whatsapp' is not in the laptop allowlist.",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "laptop",
+          "target": "whatsapp",
+          "requires_confirmation": false,
+          "params": {}
+        }
+      },
+      "timestamp": "2026-09-24T16:37:44.944Z"
+    },
+    {
+      "id": "12757cee-580c-4e7a-b69a-278a31d02a9c",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Downloads folder",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:37:50.034Z"
+    },
+    {
+      "id": "0e8df490-ac15-4103-acb7-02c5988912cf",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening your DOWNLOADS folder on laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_FOLDER",
+        "device": "laptop",
+        "target": "downloads",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "9392b1b0-ebe9-4479-9765-5e80098e4e73",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_FOLDER",
+          "device": "laptop",
+          "target": "USERPROFILE\\Downloads",
+          "displayName": "DOWNLOADS Folder",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T16:37:50.130Z"
+    }
+  ],
+  "pairingRequests": []
+}

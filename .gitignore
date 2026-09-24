@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.local
+dist/
+build/
+*.log
+.DS_Store
+*.db
+*.sqlite
+.gemini/
+coverage/
+android/.gradle/
+android/app/build/
+android/local.properties

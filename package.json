@@ -1,0 +1,29 @@
+{
+  "name": "ai-personal-device-assistant",
+  "version": "1.0.0",
+  "description": "Production-ready AI Personal Device Assistant with Windows Desktop Agent, Android Agent, and React Web Dashboard",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "desktop-agent"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install && npm --prefix desktop-agent install",
+    "start:backend": "npm --prefix backend run dev",
+    "start:frontend": "npm --prefix frontend run dev",
+    "start:desktop": "npm --prefix desktop-agent start",
+    "test:backend": "npm --prefix backend test"
+  },
+  "keywords": [
+    "ai",
+    "groq",
+    "device-automation",
+    "voice-assistant",
+    "desktop-agent",
+    "android"
+  ],
+  "author": "",
+  "license": "MIT"
+}
