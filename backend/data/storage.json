@@ -531,6 +531,120 @@
       },
       "timestamp": "2026-09-24T16:48:15.121Z",
       "updatedAt": "2026-09-24T16:48:15.122Z"
+    },
+    {
+      "id": "78e0e7da-338b-4e86-b90b-b10f8d52c1d6",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Downloads folder",
+      "intent": "OPEN_FOLDER",
+      "target": "USERPROFILE\\Downloads",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_FOLDER",
+          "folder": "Downloads",
+          "resolvedPath": "C:\\Users\\nnith\\Downloads",
+          "message": "DOWNLOADS folder opened in Windows Explorer."
+        },
+        "completedAt": "2026-09-24T16:55:21.985Z"
+      },
+      "timestamp": "2026-09-24T16:55:21.967Z",
+      "updatedAt": "2026-09-24T16:55:21.985Z"
+    },
+    {
+      "id": "43242e73-3513-41cd-bd81-c70e92f2101d",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "phone-nitheesh",
+      "deviceName": "Nitheesh's Phone",
+      "deviceType": "phone",
+      "rawCommand": "Open WhatsApp on my phone",
+      "intent": "OPEN_APP",
+      "target": "com.whatsapp",
+      "status": "FAILED",
+      "details": {
+        "error": "Target device is currently offline or unreachable."
+      },
+      "timestamp": "2026-09-24T16:55:34.272Z",
+      "updatedAt": "2026-09-24T16:55:34.274Z"
+    },
+    {
+      "id": "b4ff642a-c906-4c33-a663-ed0acd8419b6",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open YouTube on laptop",
+      "intent": "OPEN_WEBSITE",
+      "target": "https://www.youtube.com",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_WEBSITE",
+          "url": "https://www.youtube.com",
+          "message": "Website 'https://www.youtube.com' opened in default browser."
+        },
+        "completedAt": "2026-09-24T16:55:41.889Z"
+      },
+      "timestamp": "2026-09-24T16:55:41.852Z",
+      "updatedAt": "2026-09-24T16:55:41.889Z"
+    },
+    {
+      "id": "8782f7ae-d3c8-4d44-961f-c7a0a86d637f",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Check laptop status",
+      "intent": "GET_DEVICE_STATUS",
+      "target": "status",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "os": "Windows_NT 10.0.26200 (x64)",
+          "platform": "win32",
+          "hostname": "nitheesh",
+          "cpuModel": "Intel(R) Core(TM) 5 210H",
+          "cpuCores": 12,
+          "memory": {
+            "totalMB": 16077,
+            "freeMB": 3521,
+            "usagePercent": "78%"
+          },
+          "uptime": "28.6 hours",
+          "nodeVersion": "v24.19.0"
+        },
+        "completedAt": "2026-09-24T16:55:45.358Z"
+      },
+      "timestamp": "2026-09-24T16:55:45.348Z",
+      "updatedAt": "2026-09-24T16:55:45.358Z"
+    },
+    {
+      "id": "69c56828-1ca8-40d5-83b5-6669532d8b8c",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "deviceId": "laptop-nitheesh",
+      "deviceName": "Nitheesh's Laptop",
+      "deviceType": "laptop",
+      "rawCommand": "Open Downloads folder",
+      "intent": "OPEN_FOLDER",
+      "target": "USERPROFILE\\Downloads",
+      "status": "SUCCESS",
+      "details": {
+        "result": {
+          "success": true,
+          "action": "OPEN_FOLDER",
+          "folder": "Downloads",
+          "resolvedPath": "C:\\Users\\nnith\\Downloads",
+          "message": "DOWNLOADS folder opened in Windows Explorer."
+        },
+        "completedAt": "2026-09-24T16:58:44.611Z"
+      },
+      "timestamp": "2026-09-24T16:58:44.592Z",
+      "updatedAt": "2026-09-24T16:58:44.611Z"
     }
   ],
   "chatMessages": [
@@ -1360,6 +1474,205 @@
         }
       },
       "timestamp": "2026-09-24T16:48:15.123Z"
+    },
+    {
+      "id": "2f0b5d93-99eb-43a5-80cf-1842c5366886",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Downloads folder",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:55:21.303Z"
+    },
+    {
+      "id": "fc9a0253-ad2a-439a-a797-cf698d7610f6",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening your Downloads folder on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_FOLDER",
+        "device": "laptop",
+        "target": "downloads",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "78e0e7da-338b-4e86-b90b-b10f8d52c1d6",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_FOLDER",
+          "device": "laptop",
+          "target": "USERPROFILE\\Downloads",
+          "displayName": "DOWNLOADS Folder",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T16:55:21.968Z"
+    },
+    {
+      "id": "99dfce6e-09e2-4de5-9163-5ce5e100296a",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open WhatsApp on my phone",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:55:33.567Z"
+    },
+    {
+      "id": "2b32918a-9bef-4200-9abd-fdd50c119d43",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening WhatsApp on your phone.",
+      "structuredCommand": {
+        "intent": "OPEN_APP",
+        "device": "phone",
+        "target": "whatsapp",
+        "requires_confirmation": false,
+        "params": {
+          "title": null,
+          "message": null,
+          "recipient": null,
+          "url": null
+        }
+      },
+      "executionResult": {
+        "status": "FAILED",
+        "commandId": "43242e73-3513-41cd-bd81-c70e92f2101d",
+        "device": "Nitheesh's Phone",
+        "error": "Target device is currently offline or unreachable.",
+        "command": {
+          "intent": "OPEN_APP",
+          "device": "phone",
+          "target": "com.whatsapp",
+          "displayName": "WhatsApp",
+          "requires_confirmation": false,
+          "params": {
+            "title": null,
+            "message": null,
+            "recipient": null,
+            "url": null
+          }
+        }
+      },
+      "timestamp": "2026-09-24T16:55:34.275Z"
+    },
+    {
+      "id": "1a8d3d9d-4535-4132-96cc-0b3ffe659057",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open YouTube on laptop",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:55:40.865Z"
+    },
+    {
+      "id": "ac27b197-8521-4711-83b2-21b525f9ff02",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening YouTube on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_WEBSITE",
+        "device": "laptop",
+        "target": "https://www.youtube.com",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "b4ff642a-c906-4c33-a663-ed0acd8419b6",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_WEBSITE",
+          "device": "laptop",
+          "target": "https://www.youtube.com",
+          "displayName": "Website: https://www.youtube.com",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T16:55:41.856Z"
+    },
+    {
+      "id": "681de151-422b-4529-9349-d3d937b6e472",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Check laptop status",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:55:44.685Z"
+    },
+    {
+      "id": "2508db0f-3d7c-404a-9c90-7bf66e34bf2f",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Sure, fetching the current status of your laptop...",
+      "structuredCommand": {
+        "intent": "GET_DEVICE_STATUS",
+        "device": "laptop",
+        "target": null,
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "8782f7ae-d3c8-4d44-961f-c7a0a86d637f",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "GET_DEVICE_STATUS",
+          "device": "laptop",
+          "target": "status",
+          "displayName": "Device Status Check",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T16:55:45.352Z"
+    },
+    {
+      "id": "7c4e3d79-2666-4e8c-b074-9b55e264e433",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "user",
+      "content": "Open Downloads folder",
+      "structuredCommand": null,
+      "executionResult": null,
+      "timestamp": "2026-09-24T16:58:43.565Z"
+    },
+    {
+      "id": "1142e621-04b4-4a6e-8d24-9945ae2a314e",
+      "userId": "943b625c-16f1-4557-b849-db3452964677",
+      "role": "assistant",
+      "content": "Opening your Downloads folder on your laptop.",
+      "structuredCommand": {
+        "intent": "OPEN_FOLDER",
+        "device": "laptop",
+        "target": "downloads",
+        "requires_confirmation": false,
+        "params": {}
+      },
+      "executionResult": {
+        "status": "SENT_TO_DEVICE",
+        "commandId": "69c56828-1ca8-40d5-83b5-6669532d8b8c",
+        "device": "Nitheesh's Laptop",
+        "deviceType": "laptop",
+        "command": {
+          "intent": "OPEN_FOLDER",
+          "device": "laptop",
+          "target": "USERPROFILE\\Downloads",
+          "displayName": "DOWNLOADS Folder",
+          "requires_confirmation": false,
+          "params": {}
+        },
+        "message": "Executing on Nitheesh's Laptop..."
+      },
+      "timestamp": "2026-09-24T16:58:44.597Z"
     }
   ],
   "pairingRequests": []
