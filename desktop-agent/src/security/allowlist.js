@@ -43,6 +43,8 @@ export function isCommandAllowed(command) {
   return ALLOWED_WIN_COMMANDS.has(clean);
 }
 
+export const isAppAllowed = isCommandAllowed;
+
 export function isFolderAllowed(folderPath) {
   if (!folderPath || typeof folderPath !== 'string') return false;
   const clean = folderPath.trim().toLowerCase().replace(/^userprofile[\\/]/i, '').replace(/^[\\/]/, '');
