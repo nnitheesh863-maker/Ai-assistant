@@ -1,0 +1,19 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AI Personal Device Assistant API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health check"
+      }
+    },
+    "/health/metrics": {
+      "get": {
+        "summary": "Telemetry metrics"
+      }
+    }
+  }
+}
