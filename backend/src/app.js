@@ -7,11 +7,15 @@ import commandRoutes from './routes/commandRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
 import activityRoutes from './routes/activityRoutes.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
+import { requestLogger } from './middleware/requestLogger.js';
 
 import healthRoutes from './routes/healthRoutes.js';
 
 export function createApp() {
   const app = express();
+
+  // Request tracing & logging
+  app.use(requestLogger);
 
   // Security Middleware
   app.use(helmet({
