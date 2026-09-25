@@ -8,6 +8,8 @@ import chatRoutes from './routes/chatRoutes.js';
 import activityRoutes from './routes/activityRoutes.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 
+import healthRoutes from './routes/healthRoutes.js';
+
 export function createApp() {
   const app = express();
 
@@ -26,14 +28,9 @@ export function createApp() {
   app.use(express.json({ limit: '5mb' }));
   app.use(express.urlencoded({ extended: true }));
 
-  // Health check
-  app.get('/health', (req, res) => {
-    res.json({
-      status: 'healthy',
-      service: 'AI Personal Device Assistant Backend',
-      timestamp: new Date().toISOString()
-    });
-  });
+  // Health and telemetry check
+  app.use('/health', healthRoutes);
+  app.use('/api/health', healthRoutes);
 
   // REST API Routes
   app.use('/api/auth', authRoutes);
